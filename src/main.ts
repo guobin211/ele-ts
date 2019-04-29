@@ -1,16 +1,32 @@
-import Vue from 'vue';
-import router from './router';
+import Vue from './el-ui';
+import router from './views/router';
 import store from './store/index';
 import './registerServiceWorker';
 import App from './App.vue';
+
+import './styles/common.scss';
+import { httpService } from './service/http-service';
 // element 组件
-import { Button, Message, Select } from 'element-ui';
+import { Loading, Message, MessageBox, Notification } from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+Vue.prototype.$http = httpService;
+
+Vue.use(Loading.directive);
+Vue.prototype.$loading = Loading.service;
+Vue.prototype.$notify = Notification;
+Vue.prototype.$message = Message;
+Vue.prototype.$msgbox = MessageBox;
+
+Vue.prototype.$alert = MessageBox.alert;
+Vue.prototype.$confirm = MessageBox.confirm;
+Vue.prototype.$prompt = MessageBox.prompt;
 
 Vue.config.productionTip = false;
-
-Vue.prototype.$message = Message;
-Vue.component('el-button', Button);
-Vue.component('el-select', Select);
+router.beforeEach((to: any, from: any, next: () => void) => {
+  console.log(to);
+  next();
+});
 
 new Vue({
   router,

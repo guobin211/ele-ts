@@ -2,7 +2,8 @@
  * auth-service
  * @author guobin201314@gmail.com on 2019-04-20
  */
-export class AuthService {
+
+export class UserService {
 }
 
-export default new AuthService();
+export const userService = new UserService();
