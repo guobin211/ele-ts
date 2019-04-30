@@ -1,39 +1,29 @@
 <template>
-  <div class="">
-    MHeader
+  <div class="m-header">
+    <h1>Vue Typescript</h1>
   </div>
 </template>
 
 <script lang="ts">
-  import { Component, Vue, Emit, Watch } from 'vue-property-decorator';
-  import { Mutation, State } from 'vuex-class';
+  import { Component, Vue } from 'vue-property-decorator';
 
   @Component
   export default class MHeader extends Vue {
 
-    @State('author') stateAuthor: string;
-
-    @Mutation('SET_AUTHOR') mutationAuthor: any;
-
-    @Watch('data')
-    onDataChanged(val: string, oldVal: string) {
-    }
-
-    @Emit('reset')
-    onReset(n: number) {
-    }
-
-    created() {
-
-    }
-
-    mounted() {
-
-    }
-
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  .m-header {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    vertical-align: center;
 
+    h1 {
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
 </style>

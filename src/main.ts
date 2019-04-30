@@ -5,12 +5,9 @@ import './registerServiceWorker';
 import App from './App.vue';
 
 import './styles/common.scss';
-import { httpService } from './service/http-service';
 // element 组件
 import { Loading, Message, MessageBox, Notification } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-
-Vue.prototype.$http = httpService;
 
 Vue.use(Loading.directive);
 Vue.prototype.$loading = Loading.service;

@@ -7,7 +7,7 @@ export interface RootStateTypes {
 }
 
 // actions 是异步操作
-export declare type AuthorAction = (author: string) => Promise<any>;
+export declare type AuthorAction = (author: string) => void;
 
 // mutation是同步操作
 export declare type AuthorMutation = (author: string) => void;

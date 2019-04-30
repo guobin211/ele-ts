@@ -8,12 +8,30 @@ export default new Router({
   routes: [
     {
       path: '',
-      redirect: 'home'
+      redirect: 'state'
     },
     {
-      path: '/home',
-      name: 'home',
-      component: () => import(/* webpackChunkName: "home" */ './Home.vue'),
+      path: '/state',
+      name: 'state',
+      component: () => import(/* webpackChunkName: "StateComponent" */ './StateComponent.vue')
+    },
+    {
+      path: '/rxjs',
+      name: 'rxjs',
+      component: () => import(/* webpackChunkName: "rxjs" */ './RxjsPage.vue')
+    },
+    {
+      path: '/class',
+      name: 'class',
+      component: () => import(/* webpackChunkName: "class" */ './ClassPage.vue')
+    },
+    {
+      path: '/vuex',
+      name: 'vuex',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "VuexPage" */ './VuexPage.vue')
     },
     {
       path: '/login',
@@ -21,15 +39,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "login" */ './Login.vue'),
-    },
-    {
-      path: '/register',
-      name: 'register',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "register" */ './Register.vue'),
-    },
-  ],
+      component: () => import(/* webpackChunkName: "login" */ './Login.vue')
+    }
+  ]
 });

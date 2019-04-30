@@ -10,36 +10,27 @@
             class="el-menu-vertical-demo"
             default-active="2"
             text-color="#fff">
-          <el-submenu index="1">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span>导航一</span>
-            </template>
-            <el-menu-item-group>
-              <template slot="title">分组一</template>
-              <el-menu-item index="1-1">选项1</el-menu-item>
-              <el-menu-item index="1-2">选项2</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="1-3">选项3</el-menu-item>
-            </el-menu-item-group>
-            <el-submenu index="1-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="1-4-1">选项1</el-menu-item>
-            </el-submenu>
-          </el-submenu>
-          <el-menu-item index="2">
+          <el-menu-item index="1" @click="navTo('/vuex')">
             <i class="el-icon-menu"></i>
-            <span slot="title">导航二</span>
+            <span slot="title">状态管理</span>
           </el-menu-item>
-          <el-menu-item disabled index="3">
-            <i class="el-icon-document"></i>
-            <span slot="title">导航三</span>
-          </el-menu-item>
-          <el-menu-item index="4">
+
+          <el-menu-item index="2" @click="navTo('/state')">
             <i class="el-icon-setting"></i>
-            <span slot="title">导航四</span>
+            <span slot="title">高阶组件</span>
           </el-menu-item>
+
+
+          <el-menu-item index="3" @click="navTo('/class')">
+            <i class="el-icon-setting"></i>
+            <span slot="title">面向对象</span>
+          </el-menu-item>
+
+          <el-menu-item index="4" @click="navTo('/rxjs')">
+            <i class="el-icon-setting"></i>
+            <span slot="title">响应式编程</span>
+          </el-menu-item>
+
         </el-menu>
       </el-col>
     </el-row>
@@ -47,15 +38,10 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue, Emit, Watch } from 'vue-property-decorator';
-  import { Mutation, State } from 'vuex-class';
+  import { Component, Vue } from 'vue-property-decorator';
 
   @Component
   export default class MSideNav extends Vue {
-
-    sideNavData = [
-      {title: '导航一', path: '/', icon: 'el-icon-menu'}
-    ];
 
     handleOpen(key: any, keyPath: any) {
       console.log(key, keyPath);
@@ -63,6 +49,12 @@
 
     handleClose(key: any, keyPath: any) {
       console.log(key, keyPath);
+    }
+
+    navTo(p: string) {
+      this.$router.push({
+        path: p
+      });
     }
 
   }

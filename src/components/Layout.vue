@@ -5,10 +5,12 @@
         <m-side-nav></m-side-nav>
       </el-aside>
       <el-container>
-        <el-header>
+        <el-header style="background: #219be9; color: #fff">
           <m-header></m-header>
         </el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <slot></slot>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -23,16 +25,17 @@
     components: {
       MSideNav,
       MHeader
-    },
+    }
   })
-  export default class Home extends Vue {
+  export default class Layout extends Vue {
+
   }
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
   .full-page {
     .aside {
-      background: bisque;
+      background: rgb(84, 92, 100);
     }
   }
 </style>
