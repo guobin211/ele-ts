@@ -12,22 +12,18 @@ export default new Router({
     },
     {
       path: '/state',
-      name: 'state',
       component: () => import(/* webpackChunkName: "StateComponent" */ './StateComponent.vue')
     },
     {
       path: '/rxjs',
-      name: 'rxjs',
       component: () => import(/* webpackChunkName: "rxjs" */ './RxjsPage.vue')
     },
     {
       path: '/class',
-      name: 'class',
       component: () => import(/* webpackChunkName: "class" */ './ClassPage.vue')
     },
     {
       path: '/vuex',
-      name: 'vuex',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -35,7 +31,6 @@ export default new Router({
     },
     {
       path: '/login',
-      name: 'login',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
