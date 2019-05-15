@@ -3,32 +3,15 @@
     <el-row>
       <el-col :span="24">
         <el-menu
-            @close="handleClose"
-            @open="handleOpen"
             active-text-color="#ffd04b"
             background-color="#545c64"
             class="el-menu-vertical-demo"
-            default-active="2"
+            :default-active="currentIndex"
             text-color="#fff">
-          <el-menu-item index="1" @click="navTo('/vuex')">
+          <el-menu-item :index="index + 1" @click="navTo(item)" v-for="(item, index) in routeData"
+                        :key="index">
             <i class="el-icon-menu"></i>
-            <span slot="title">状态管理</span>
-          </el-menu-item>
-
-          <el-menu-item index="2" @click="navTo('/state')">
-            <i class="el-icon-setting"></i>
-            <span slot="title">高阶组件</span>
-          </el-menu-item>
-
-
-          <el-menu-item index="3" @click="navTo('/class')">
-            <i class="el-icon-setting"></i>
-            <span slot="title">面向对象</span>
-          </el-menu-item>
-
-          <el-menu-item index="4" @click="navTo('/rxjs')">
-            <i class="el-icon-setting"></i>
-            <span slot="title">响应式编程</span>
+            <span slot="title">{{item.name}}</span>
           </el-menu-item>
 
         </el-menu>
@@ -40,21 +23,54 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
 
+  export interface RouteData {
+    name: string,
+    path: string
+  }
+
   @Component
   export default class MSideNav extends Vue {
 
-    handleOpen(key: any, keyPath: any) {
-      console.log(key, keyPath);
-    }
+    currentIndex = 1;
 
-    handleClose(key: any, keyPath: any) {
-      console.log(key, keyPath);
-    }
+    routeData: RouteData[] = [
+      {
+        name: '状态管理', path: '/vuex'
+      },
+      {
+        name: '高阶组件', path: '/state'
+      },
+      {
+        name: '面向对象', path: '/class'
+      },
+      {
+        name: 'Canvas', path: '/canvas'
+      },
+      {
+        name: 'ZRender', path: '/render'
+      },
+      {
+        name: 'Three.js', path: '/three'
+      }
+    ];
 
-    navTo(p: string) {
+    navTo(p: RouteData) {
       this.$router.push({
-        path: p
+        path: p.path
       });
+    }
+
+    created() {
+      this.checkCurrentIndex();
+    }
+
+    private checkCurrentIndex() {
+      for (let i = 0; i < this.routeData.length; i++) {
+        if (this.routeData[i].path === this.$route.fullPath) {
+          this.currentIndex = i + 1;
+          break;
+        }
+      }
     }
 
   }
