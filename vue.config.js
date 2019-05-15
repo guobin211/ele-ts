@@ -1,11 +1,11 @@
-const path = require("path");
-const sourceMap = process.env.NODE_ENV === "development";
+const path = require('path');
+const sourceMap = process.env.NODE_ENV === 'development';
 
 module.exports = {
   // 基本路径
-  publicPath: "./",
+  publicPath: './',
   // 输出文件目录
-  outputDir: "dist",
+  outputDir: 'dist',
   // eslint-loader 是否在保存的时候检查
   // lintOnSave: false,
   // webpack配置
@@ -13,21 +13,21 @@ module.exports = {
   chainWebpack: () => {
   },
   configureWebpack: config => {
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === 'production') {
       // 为生产环境修改配置...
-      config.mode = "production";
+      config.mode = 'production';
     } else {
       // 为开发环境修改配置...
-      config.mode = "development";
+      config.mode = 'development';
     }
 
     Object.assign(config, {
       // 开发生产共同配置
       resolve: {
-        extensions: [".js", ".vue", ".json", ".ts", ".tsx"],
+        extensions: ['.js', '.vue', '.json', '.ts', '.tsx'],
         alias: {
-          vue$: "vue/dist/vue.js",
-          "@": path.resolve(__dirname, "./src")
+          vue$: 'vue/dist/vue.js',
+          '@': path.resolve(__dirname, './src')
         }
       }
     });
@@ -47,28 +47,28 @@ module.exports = {
   },
   // use thread-loader for babel & TS in production build
   // enabled by default if the machine has more than 1 cores
-  parallel: require("os").cpus().length > 1,
+  parallel: require('os').cpus().length > 1,
   // PWA 插件相关配置
   // see https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
   pwa: {},
   // webpack-dev-server 相关配置
   devServer: {
-    open: process.platform === "darwin",
-    host: "localhost",
-    port: 4211, //8080,
+    open: process.platform === 'darwin',
+    host: 'localhost',
+    port: 4211, //4211,
     https: false,
     hotOnly: false,
     proxy: {
       // 设置代理
       // proxy all requests starting with /api to jsonplaceholder
-      "/api": {
+      '/api': {
         // target: "https://emm.cmccbigdata.com:8443/",
-        target: "http://localhost:3000/",
+        target: 'http://localhost:3000/',
         // target: "http://47.106.136.114/",
         changeOrigin: true,
         ws: true,
         pathRewrite: {
-          "^/api": ""
+          '^/api': ''
         }
       }
     },
