@@ -60,14 +60,14 @@
      * 相机
      */
     private initCamare() {
-      this.camera = new THREE.PerspectiveCamera(45,this.width / this.height, 100);
+      this.camera = new THREE.PerspectiveCamera(45, this.width / this.height, 100);
       this.camera.position.x = 0;
       this.camera.position.y = 1000;
       this.camera.position.z = 0;
       this.camera.up.x = 0;
       this.camera.up.y = 0;
       this.camera.up.z = 1;
-      this.camera.lookAt(0,0,0);
+      this.camera.lookAt(0, 0, 0);
     }
 
     private initScene() {
@@ -85,10 +85,10 @@
      */
     private initGeometry() {
       this.geometry = new THREE.Geometry();
-      this.geometry.vertices.push( new THREE.Vector3( -50, 0, 0 ) );
-      this.geometry.vertices.push( new THREE.Vector3( 50, 0, 0 ) );
+      this.geometry.vertices.push( new THREE.Vector3( -500, 0, 0 ) );
+      this.geometry.vertices.push( new THREE.Vector3( 500, 0, 0 ) );
 
-      for ( let i = 0; i <= 10; i ++ ) {
+      for ( let i = 0; i <= 20; i ++ ) {
 
         const line1 = new THREE.Line( this.geometry, new THREE.LineBasicMaterial( { color: '#219be9', opacity: 1 } ) );
         line1.position.z = ( i * 50 ) - 50;
