@@ -1,7 +1,12 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import Router, { RouteConfig } from 'vue-router';
 
 Vue.use(Router);
+
+const canvas: RouteConfig = {
+  path: '/state',
+  component: () => import(/* webpackChunkName: "StateComponent" */ './StateComponent.vue')
+};
 
 export default new Router({
 
