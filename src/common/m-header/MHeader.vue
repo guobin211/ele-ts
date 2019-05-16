@@ -7,7 +7,9 @@
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
 
-  @Component
+  @Component({
+    name: 'MHeader'
+  })
   export default class MHeader extends Vue {
 
   }

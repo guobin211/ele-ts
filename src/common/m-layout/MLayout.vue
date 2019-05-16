@@ -22,6 +22,7 @@
   import MHeader from '@/common/m-header/MHeader.vue';
 
   @Component({
+    name: 'MLayout',
     components: {
       MSideNav,
       MHeader
