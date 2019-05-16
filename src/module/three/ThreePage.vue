@@ -1,0 +1,41 @@
+<template>
+  <div class="">
+    ThreePage
+  </div>
+</template>
+
+<script lang="ts">
+  import { Component, Vue, Emit, Watch } from 'vue-property-decorator';
+  import { Mutation, State } from 'vuex-class';
+
+  @Component({
+    name: 'ThreePage'
+  })
+  export default class ThreePage extends Vue {
+
+    @State('author') stateAuthor: string;
+
+    @Mutation('SET_AUTHOR') mutationAuthor: any;
+
+    @Watch('data')
+    onDataChanged(val: string, oldVal: string) {
+    }
+
+    @Emit('reset')
+    onReset(n: number) {
+    }
+
+    created() {
+
+    }
+
+    mounted() {
+
+    }
+
+  }
+</script>
+
+<style scoped>
+
+</style>
