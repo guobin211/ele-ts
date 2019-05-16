@@ -1,35 +1,38 @@
 import Vue from 'vue';
-import Router, { RouteConfig } from 'vue-router';
+import Router from 'vue-router';
+import { canvasRouter } from '@/module/canvas/canvasRouter';
+import { vuexRouter } from '@/module/vuex/vuexRouter';
+import { threeRouter } from '@/module/three/threeRouter';
+import { zrenderRouter } from '@/module/z-render/zrenderRouter';
 
 Vue.use(Router);
 
-const canvas: RouteConfig = {
-  path: '/state',
-  component: () => import(/* webpackChunkName: "StateComponent" */ './StateComponent.vue')
-};
 
 export default new Router({
 
   routes: [
     {
       path: '',
-      redirect: '/vuex'
+      redirect: '/index/canvas/'
     },
     {
-      path: '/state',
-      component: () => import(/* webpackChunkName: "StateComponent" */ './StateComponent.vue')
+      path: '/index',
+      component: () => import(/* webpackChunkName: "PageIndex" */ './PageIndex.vue'),
+      children: [
+        zrenderRouter,
+        threeRouter,
+        vuexRouter,
+        canvasRouter
+      ]
     },
     {
-      path: '/class',
-      component: () => import(/* webpackChunkName: "class" */ './ClassPage.vue')
-    },
-    {
-      path: '/vuex',
-      component: () => import(/* webpackChunkName: "VuexPage" */ './VuexPage.vue')
+      path: '/home',
+      component: () => import(/* webpackChunkName: "PageHome" */ './PageHome.vue'),
+      children: []
     },
     {
       path: '**',
-      redirect: '/vuex'
+      redirect: '/index/canvas/'
     }
   ]
 });

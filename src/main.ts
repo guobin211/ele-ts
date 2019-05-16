@@ -21,7 +21,6 @@ Vue.prototype.$prompt = MessageBox.prompt;
 
 Vue.config.productionTip = false;
 router.beforeEach((to: any, from: any, next: () => void) => {
-  console.log(to);
   next();
 });
 
