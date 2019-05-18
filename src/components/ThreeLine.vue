@@ -2,11 +2,6 @@
   <div class="page">
     <div class="canvas-warp" ref="threeLine" id="canvas-warp">
     </div>
-    <div class="control">
-      <div>
-        <el-button type="primary" size="small" @click="apiSize">旋转缩放</el-button>
-      </div>
-    </div>
   </div>
 
 </template>
@@ -138,14 +133,8 @@
     flex-direction: row;
     align-content: center;
     .canvas-warp{
-      width: 80%;
-      height: 100%;
-    }
-    .control{
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      text-align: center;
+      width: 900px;
+      height: 900px;
     }
   }
 

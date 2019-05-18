@@ -1,15 +1,20 @@
 <template>
-  <div class="">
+  <div class="page-warp">
     ThreePage
+    <three-line></three-line>
   </div>
 </template>
 
 <script lang="ts">
   import { Component, Vue, Emit, Watch } from 'vue-property-decorator';
   import { Mutation, State } from 'vuex-class';
+  import ThreeLine from '@/components/ThreeLine.vue';
 
   @Component({
-    name: 'ThreePage'
+    name: 'ThreePage',
+    components: {
+      ThreeLine
+    }
   })
   export default class ThreePage extends Vue {
 
@@ -36,6 +41,6 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

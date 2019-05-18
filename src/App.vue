@@ -28,4 +28,14 @@
     height: 100%;
   }
 
+  .page-warp{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+  }
+
 </style>
