@@ -5,8 +5,9 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue, Emit, Watch } from 'vue-property-decorator';
+  import { Component, Emit, Vue, Watch } from 'vue-property-decorator';
   import { Mutation, State } from 'vuex-class';
+  import { eventBus } from '@/utils/rxjs/event-bus';
 
   @Component({
     name: 'Coordinate'
@@ -26,7 +27,12 @@
     }
 
     created() {
+      this.$message.info('message');
+      eventBus.registerObserver('APP_EVENT', this);
+    }
 
+    notify(data: any) {
+      console.log(data);
     }
 
     mounted() {

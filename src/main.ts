@@ -24,8 +24,11 @@ router.beforeEach((to: any, from: any, next: () => void) => {
   next();
 });
 
-new Vue({
+const app = new Vue({
   router,
   store,
-  render: (h) => h(App),
+  render: (h) => h(App)
 }).$mount('#app');
+
+
+console.log(app);

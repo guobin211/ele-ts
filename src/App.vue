@@ -5,9 +5,19 @@
 </template>
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
+  import { eventBus } from '@/utils/rxjs/event-bus';
 
   @Component
   export default class App extends Vue {
+    constructor() {
+      super();
+    }
+
+    created() {
+      setTimeout(() => {
+        eventBus.notifyObservers('APP_EVENT', 'eventBus start');
+      }, 3000);
+    }
   }
 </script>
 <style lang="scss">
@@ -28,7 +38,7 @@
     height: 100%;
   }
 
-  .page-warp{
+  .page-warp {
     width: 100%;
     height: 100%;
     position: relative;

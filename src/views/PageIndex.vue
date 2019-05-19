@@ -30,18 +30,20 @@
 </script>
 
 <style scoped lang="scss">
-  .main-page{
+  .main-page {
     width: 100%;
     height: 100%;
     position: relative;
     display: flex;
     flex-direction: row;
-    .left{
+
+    .left {
       width: 200px;
       height: 100%;
       background: rgb(84, 92, 100);
     }
-    .right{
+
+    .right {
       flex: 1;
     }
   }

@@ -54,7 +54,7 @@
     /**
      * 相机
      */
-    private initCamare() {
+    private initCamera() {
       this.camera = new THREE.PerspectiveCamera(45, this.width / this.height, 100);
       this.camera.position.x = 0;
       this.camera.position.y = 1000;
@@ -80,19 +80,25 @@
      */
     private initGeometry() {
       this.geometry = new THREE.Geometry();
-      this.geometry.vertices.push( new THREE.Vector3( -500, 0, 0 ) );
-      this.geometry.vertices.push( new THREE.Vector3( 500, 0, 0 ) );
+      this.geometry.vertices.push(new THREE.Vector3(-500, 0, 0));
+      this.geometry.vertices.push(new THREE.Vector3(500, 0, 0));
 
-      for ( let i = 0; i <= 20; i ++ ) {
+      for (let i = 0; i <= 20; i++) {
 
-        const line1 = new THREE.Line( this.geometry, new THREE.LineBasicMaterial( { color: '#219be9', opacity: 1 } ) );
-        line1.position.z = ( i * 50 ) - 50;
-        this.scene.add( line1 );
+        const line1 = new THREE.Line(this.geometry, new THREE.LineBasicMaterial({
+          color: '#219be9',
+          opacity: 1
+        }));
+        line1.position.z = (i * 50) - 50;
+        this.scene.add(line1);
 
-        const line2 = new THREE.Line( this.geometry, new THREE.LineBasicMaterial( { color: '#219be9', opacity: 1 } ) );
-        line2.position.x = ( i * 50 ) - 50;
+        const line2 = new THREE.Line(this.geometry, new THREE.LineBasicMaterial({
+          color: '#219be9',
+          opacity: 1
+        }));
+        line2.position.x = (i * 50) - 50;
         line2.rotation.y = 90 * Math.PI / 180;
-        this.scene.add(line2 );
+        this.scene.add(line2);
 
       }
     }
@@ -112,7 +118,7 @@
         this.width = (this.$refs.threeLine as HTMLElement).clientWidth;
         this.height = (this.$refs.threeLine as HTMLElement).clientHeight;
         this.initThree();
-        this.initCamare();
+        this.initCamera();
         this.initScene();
         this.initLight();
         this.initGeometry();
@@ -132,7 +138,8 @@
     display: flex;
     flex-direction: row;
     align-content: center;
-    .canvas-warp{
+
+    .canvas-warp {
       width: 900px;
       height: 900px;
     }
