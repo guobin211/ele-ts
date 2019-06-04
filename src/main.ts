@@ -1,4 +1,5 @@
 import Vue from './el-ui';
+// import Vue from 'vue';
 import router from './views/router';
 import store from './store/index';
 import './registerServiceWorker';

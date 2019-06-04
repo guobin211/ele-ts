@@ -9,6 +9,7 @@
 
   @Component
   export default class App extends Vue {
+
     constructor() {
       super();
     }
@@ -17,6 +18,10 @@
       setTimeout(() => {
         eventBus.notifyObservers('APP_EVENT', 'eventBus start');
       }, 3000);
+      this.$notify({
+        message: 'message',
+        title: 'title',
+      })
     }
   }
 </script>
