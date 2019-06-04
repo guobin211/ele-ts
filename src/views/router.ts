@@ -1,37 +1,38 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import { canvasRouter } from '@/module/canvas/canvasRouter';
+import { vuexRouter } from '@/module/vuex/vuexRouter';
+import { threeRouter } from '@/module/three/threeRouter';
+import { zrenderRouter } from '@/module/z-render/zrenderRouter';
 
 Vue.use(Router);
+
 
 export default new Router({
 
   routes: [
     {
       path: '',
-      redirect: 'state'
+      redirect: '/index/canvas/'
     },
     {
-      path: '/state',
-      component: () => import(/* webpackChunkName: "StateComponent" */ './StateComponent.vue')
+      path: '/index',
+      component: () => import(/* webpackChunkName: "PageIndex" */ './PageIndex.vue'),
+      children: [
+        zrenderRouter,
+        threeRouter,
+        vuexRouter,
+        canvasRouter
+      ]
     },
     {
-      path: '/rxjs',
-      component: () => import(/* webpackChunkName: "rxjs" */ './RxjsPage.vue')
+      path: '/home',
+      component: () => import(/* webpackChunkName: "PageHome" */ './PageHome.vue'),
+      children: []
     },
     {
-      path: '/class',
-      component: () => import(/* webpackChunkName: "class" */ './ClassPage.vue')
-    },
-    {
-      path: '/vuex',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "VuexPage" */ './VuexPage.vue')
-    },
-    {
-      path: '/login',
-      component: () => import(/* webpackChunkName: "login" */ './Login.vue')
+      path: '**',
+      redirect: '/index/canvas/'
     }
   ]
 });

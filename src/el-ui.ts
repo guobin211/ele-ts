@@ -72,6 +72,8 @@ import {
   Notification
 } from 'element-ui';
 
+Vue.use(Button);
+// Vue.component('el-button', Button);
 Vue.component('el-pagination', Pagination);
 Vue.component('el-dialog', Dialog);
 Vue.component('el-autocomplete', Autocomplete);
@@ -94,7 +96,6 @@ Vue.component('el-switch', Switch);
 Vue.component('el-select', Select);
 Vue.component('el-option', Option);
 Vue.component('el-option-group', OptionGroup);
-Vue.component('el-button', Button);
 Vue.component('el-button-group', ButtonGroup);
 Vue.component('el-table', Table);
 Vue.component('el-table-column', TableColumn);

@@ -1,4 +1,5 @@
 import Vue from './el-ui';
+// import Vue from 'vue';
 import router from './views/router';
 import store from './store/index';
 import './registerServiceWorker';
@@ -21,12 +22,14 @@ Vue.prototype.$prompt = MessageBox.prompt;
 
 Vue.config.productionTip = false;
 router.beforeEach((to: any, from: any, next: () => void) => {
-  console.log(to);
   next();
 });
 
-new Vue({
+const app = new Vue({
   router,
   store,
-  render: (h) => h(App),
+  render: (h) => h(App)
 }).$mount('#app');
+
+
+console.log(app);
