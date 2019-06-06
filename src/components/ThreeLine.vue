@@ -1,9 +1,7 @@
 <template>
   <div class="page">
-    <div class="canvas-warp" ref="threeLine" id="canvas-warp">
-    </div>
+    <div class="canvas-warp" ref="threeLine" id="canvas-warp"></div>
   </div>
-
 </template>
 
 <script lang="ts">
@@ -11,11 +9,11 @@
   import * as THREE from 'three';
   import { PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 
-
   @Component({
     name: 'ThreeLine'
   })
   export default class ThreeLine extends Vue {
+
     private dom: HTMLElement;
     private timer: any;
     public width = 500;

@@ -38,7 +38,7 @@
   export default class MSideNav extends Vue {
 
     currentIndex: string = '0';
-
+  
     navTo(p: RouteData) {
       this.$router.push({
         path: p.path

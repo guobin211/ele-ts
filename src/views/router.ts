@@ -28,7 +28,6 @@ export default new Router({
     {
       path: '/home',
       component: () => import(/* webpackChunkName: "PageHome" */ './PageHome.vue'),
-      children: []
     },
     {
       path: '**',

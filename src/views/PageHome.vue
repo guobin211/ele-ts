@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    PageHome
+  <div class="home">
+    home page
   </div>
 </template>
 
@@ -9,7 +9,7 @@
   import { Mutation, State } from 'vuex-class';
 
   @Component({
-    name: 'PageHome'
+    name: 'PageHome',
   })
   export default class PageHome extends Vue {
 
