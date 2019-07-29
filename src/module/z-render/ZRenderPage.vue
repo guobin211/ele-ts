@@ -5,35 +5,35 @@
 </template>
 
 <script lang="ts">
-  import { Component, Vue, Emit, Watch } from 'vue-property-decorator';
-  import { Mutation, State } from 'vuex-class';
+    import { Component, Vue, Emit, Watch } from 'vue-property-decorator';
+    import { Mutation, State } from 'vuex-class';
+    import { Render } from '@/module/z-render/Render';
 
-  @Component({
-    name: 'ZRenderPage'
-  })
-  export default class ZRenderPage extends Vue {
+    @Component({
+        name: 'ZRenderPage'
+    })
+    export default class ZRenderPage extends Vue implements Render {
 
-    @State('author') stateAuthor: string;
+        render() {
+        };
 
-    @Mutation('SET_AUTHOR') mutationAuthor: any;
+        @State('author') stateAuthor: string;
+        @Mutation('SET_AUTHOR') mutationAuthor: any;
 
-    @Watch('data')
-    onDataChanged(val: string, oldVal: string) {
+        @Watch('data')
+        onDataChanged(val: string, oldVal: string) {
+        }
+
+        @Emit('reset')
+        onReset(n: number) {
+        }
+
+        created() {
+        }
+
+        mounted() {
+        }
     }
-
-    @Emit('reset')
-    onReset(n: number) {
-    }
-
-    created() {
-
-    }
-
-    mounted() {
-
-    }
-
-  }
 </script>
 
 <style scoped>

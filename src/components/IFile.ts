@@ -4,6 +4,6 @@
  */
 export class IFile {
   name: string;
-  age: number
+  age: number;
   constructor() {}
 }

@@ -6,5 +6,5 @@ app.use(express.static('dist'));
 
 app.listen(3000, () => {
   console.warn('http://localhost:3000');
-})
+});
 
