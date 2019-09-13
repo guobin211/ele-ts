@@ -18,6 +18,8 @@
     display: block;
     overflow: auto;
     transition: display 0.2s ease-in-out;
+    /*ios背景模糊*/
+    backdrop-filter: blur(10px);
 }
 
 .bg-img {
