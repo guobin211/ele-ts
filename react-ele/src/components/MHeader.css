@@ -1,0 +1,162 @@
+.col-flex {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    background: rgba(7, 17, 27, 0.8);
+    display: block;
+    overflow: auto;
+    transition: display 0.2s ease-in-out;
+}
+
+.bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    filter: blur(10px);
+}
+
+.detail-btn {
+    position: absolute;
+    right: 24px;
+    bottom: 48px;
+    width: 40px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 24px;
+    font-size: 10px;
+    z-index: 10;
+}
+
+.banner-warp {
+    height: 28px;
+    display: flex;
+    flex-direction: row;
+    padding: 0 12px;
+    align-items: center;
+    background-color: rgba(7, 17, 27, 0.2);
+}
+
+.image-warp {
+    height: 112px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+
+.left {
+    width: 112px;
+    height: 112px;
+    margin-left: 24px;
+}
+
+.right {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 18px;
+    margin-bottom: 8px;
+    width: 100%;
+    vertical-align: top;
+}
+
+.title span {
+    float: left;
+}
+
+.title-icon {
+    display: block;
+    float: left;
+    background-image: url("../assets/img/brand@2x.png");
+    width: 30px;
+    height: 18px;
+    background-size: 36px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: 12px;
+}
+
+.send {
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.message {
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: 400;
+}
+
+.avatar {
+    margin-top: 24px;
+    width: 64px;
+    height: 64px;
+    border-radius: 4px;
+}
+
+
+.bullet {
+    width: 82px;
+    height: 24px;
+    display: block;
+    border: 0;
+    background-image: url("../assets/img/bulletin@2x.png");
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media screen and (device-pixel-ratio: 2) {
+    .bullet {
+        background-image: url("../assets/img/bulletin@3x.png");
+    }
+}
+
+.inline-text {
+    line-height: 28px;
+    padding-left: 8px;
+    height: 28px;
+    color: #fff;
+    font-size: 10px;
+    text-wrap: none;
+}
+
+.support {
+    display: block;
+    width: 12px;
+    height: 12px;
+    float: left;
+    background: url("../assets/img/decrease_1@2x.png") center no-repeat;
+    background-size: contain;
+    margin-right: 8px;
+}
+
