@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import './Ratings.styl'
 
 export type Size = 48 | 36 | 24;
@@ -36,7 +36,7 @@ export class Ratings extends React.Component<RatingsProps> {
     return result
   }
 
-  buildRatings(): any {
+  buildRatings(): ReactNode {
     return this.ratingItemClass().map((s,i) => {
       const className = 'star-item ' + s;
       return (
@@ -45,7 +45,7 @@ export class Ratings extends React.Component<RatingsProps> {
     })
   }
 
-  render(): any {
+  render(): ReactNode {
     return (
         <div className={this.ratingGroupClass()}>
           {this.buildRatings()}

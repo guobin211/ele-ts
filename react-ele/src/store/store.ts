@@ -1,4 +1,4 @@
-export function getGoodsData(): Promise<GoodsVM> {
+export function getGoodsData(): Promise<GoodsVM[]> {
   return fetch('/data.json').then(res => res.json()).then(res => res.goods);
 }
 
@@ -37,10 +37,10 @@ export interface Support {
 export interface GoodsVM {
   name:  string;
   type:  number;
-  foods: Food[];
+  foods: FoodVM[];
 }
 
-export interface Food {
+export interface FoodVM {
   name:        string;
   price:       number;
   oldPrice:    number | string;
