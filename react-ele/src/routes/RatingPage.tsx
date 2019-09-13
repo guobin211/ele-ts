@@ -1,13 +1,13 @@
 import React from "react";
 
-export class Ratings extends React.Component {
+export class RatingPage extends React.Component {
 
   componentDidMount(): void {
-    console.log('Ratings componentDidMount')
+    console.log('RatingPage componentDidMount')
   }
 
   componentWillUnmount(): void {
-    console.log('Ratings componentWillUnmount')
+    console.log('RatingPage componentWillUnmount')
   }
 
   render() {

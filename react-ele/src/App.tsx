@@ -3,7 +3,7 @@ import './App.css';
 import { MHeader } from "./components/MHeader";
 import { MTabs } from "./components/MTabs";
 import { Goods } from "./routes/Goods";
-import { Ratings } from "./routes/Ratings";
+import { RatingPage } from "./routes/RatingPage";
 import { Seller } from "./routes/Seller";
 
 /**
@@ -23,7 +23,7 @@ const App: React.FC = () => {
       return <Goods/>;
     }
     if (index === 1) {
-      return <Ratings/>;
+      return <RatingPage/>;
     }
     if (index === 2) {
       return <Seller/>;
