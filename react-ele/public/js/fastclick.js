@@ -443,7 +443,10 @@
 
     // Prevent phantom clicks on fast double-tap (issue #36)
     if ((event.timeStamp - this.lastClickTime) < this.tapDelay) {
-      event.preventDefault();
+      try {
+        event.stopPropagation();
+      } catch (e) {
+      }
     }
 
     return true;
