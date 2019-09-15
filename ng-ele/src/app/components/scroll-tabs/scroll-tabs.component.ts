@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-scroll-tabs',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScrollTabsComponent implements OnInit {
 
+  @Input() tabsData: any[];
+
+  currentIndex = 0;
+
   constructor() { }
 
   ngOnInit() {
   }
-
+  handleClick(item: any, index: number) {
+    this.currentIndex = index;
+    console.log(item);
+  }
+  handleScroll(ev: Event) {
+    console.log(ev);
+  }
 }
