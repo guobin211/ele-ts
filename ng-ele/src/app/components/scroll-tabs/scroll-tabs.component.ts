@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-scroll-tabs',
@@ -8,18 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ScrollTabsComponent implements OnInit {
 
   @Input() tabsData: any[];
-
+  @Output()
+  tabChange: EventEmitter<any> = new EventEmitter<any>();
   currentIndex = 0;
-
-  constructor() { }
 
   ngOnInit() {
   }
+
   handleClick(item: any, index: number) {
     this.currentIndex = index;
-    console.log(item);
+    this.tabChange.emit(item);
   }
+
   handleScroll(ev: Event) {
-    console.log(ev);
+    ev.stopPropagation();
+    ev.preventDefault();
   }
 }

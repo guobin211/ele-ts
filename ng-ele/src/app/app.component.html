@@ -1,5 +1,7 @@
 <div class="tabs-host">
-  <app-scroll-tabs [tabsData]="menuTabs"></app-scroll-tabs>
+  <app-scroll-tabs [tabsData]="menuTabs" (tabChange)="onTabChange($event)"></app-scroll-tabs>
 </div>
-<h1>angular</h1>
+<div class="image-warp">
+  <app-image-slider [imageList]="menuTabs"></app-image-slider>
+</div>
 <router-outlet></router-outlet>

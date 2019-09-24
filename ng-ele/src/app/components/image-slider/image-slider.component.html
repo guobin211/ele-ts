@@ -1,1 +1,7 @@
-<p>image-slider works!</p>
+<div class="image-slider-warp">
+  <div class="image-list">
+    <div class="image-item" *ngFor="let image of imageList; let i = index">
+      item: {{image.text}}
+    </div>
+  </div>
+</div>

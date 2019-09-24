@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-ele';
-
+  currentTab: any = {};
   menuTabs = [
     {id: 0, text: '男装', path: ''},
     {id: 1, text: '女装', path: ''},
@@ -18,4 +17,8 @@ export class AppComponent {
     {id: 6, text: '特价', path: ''},
     {id: 7, text: '活动现场', path: ''},
   ];
+
+  onTabChange(val: any) {
+    this.currentTab = val;
+  }
 }

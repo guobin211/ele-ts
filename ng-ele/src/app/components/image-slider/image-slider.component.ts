@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-image-slider',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./image-slider.component.scss']
 })
 export class ImageSliderComponent implements OnInit {
-
+  @Input() imageList: any[];
   constructor() { }
 
   ngOnInit() {
