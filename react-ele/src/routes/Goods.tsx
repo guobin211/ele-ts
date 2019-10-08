@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import BScroll from '@better-scroll/core'
-import './goods.styl';
+import BScroll from "@better-scroll/core";
+import "./goods.styl";
 import { FoodVM, getGoodsData, GoodsVM } from "../store/store";
 
 export interface GoodsState {
@@ -11,22 +11,21 @@ export interface GoodsState {
   currentIndex: number;
 }
 
-const classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
+const classMap = ["decrease", "discount", "special", "invoice", "guarantee"];
 
 export class Goods extends React.Component {
-
   state: GoodsState = {
     goods: [],
     listHeight: [],
     scrollY: 0,
     selectedFood: {} as FoodVM,
-    currentIndex: 0,
+    currentIndex: 0
   };
 
   menuWrapper: HTMLDivElement = {} as HTMLDivElement;
   foodsWrapper: HTMLDivElement = {} as HTMLDivElement;
   foodList: HTMLElement[] = [];
-  menuList: HTMLElement[] =[];
+  menuList: HTMLElement[] = [];
 
   meunScroll!: BScroll;
   foodsScroll!: BScroll;
@@ -47,7 +46,7 @@ export class Goods extends React.Component {
     }
     this.setState({
       listHeight: listHeight
-    })
+    });
   }
 
   /**
@@ -64,7 +63,7 @@ export class Goods extends React.Component {
       probeType: 3
     });
 
-    this.foodsScroll.on('scroll', (pos: any) => {
+    this.foodsScroll.on("scroll", (pos: any) => {
       // 判断滑动方向，避免下拉时分类高亮错误（如第一分类商品数量为1时，下拉使得第二分类高亮）
       if (pos.y <= 0) {
         this.setState({
@@ -94,7 +93,10 @@ export class Goods extends React.Component {
     for (let i = 0; i < this.state.listHeight.length; i++) {
       let height1 = this.state.listHeight[i];
       let height2 = this.state.listHeight[i + 1];
-      if (!height2 || (this.state.scrollY >= height1 && this.state.scrollY < height2)) {
+      if (
+        !height2 ||
+        (this.state.scrollY >= height1 && this.state.scrollY < height2)
+      ) {
         this.setState({
           currentIndex: i
         });
@@ -114,7 +116,7 @@ export class Goods extends React.Component {
       });
       this._calculateHeight();
       this._initScroll();
-    })
+    });
   }
 
   /**
@@ -134,21 +136,24 @@ export class Goods extends React.Component {
    * 侧边菜单
    */
   buildMenuList(): ReactNode {
-    return (
-        this.state.goods.map((item, index) => {
-          const _activeClass = index === this.state.currentIndex ? 'current' : '';
-          const _className = `menu-item ${_activeClass}`;
-          const _iconClass = `icon ${classMap[item.type]}`;
-          return (
-              <li className={_className} key={index} onClick={e => this.onMenuClick(index, e)} ref={ml => this.menuList[index] = ml!}>
-                  <span className="text border-1px">
-                    {item.type > 0 ? <span className={_iconClass}/> : null}
-                    {item.name}
-                  </span>
-              </li>
-          )
-        })
-    );
+    return this.state.goods.map((item, index) => {
+      const _activeClass = index === this.state.currentIndex ? "current" : "";
+      const _className = `menu-item ${_activeClass}`;
+      const _iconClass = `icon ${classMap[item.type]}`;
+      return (
+        <li
+          className={_className}
+          key={index}
+          onClick={e => this.onMenuClick(index, e)}
+          ref={ml => (this.menuList[index] = ml!)}
+        >
+          <span className="text border-1px">
+            {item.type > 0 ? <span className={_iconClass} /> : null}
+            {item.name}
+          </span>
+        </li>
+      );
+    });
   }
 
   /**
@@ -156,72 +161,66 @@ export class Goods extends React.Component {
    * @param goods
    */
   buildFoodItem(goods: GoodsVM): ReactNode {
-    return (
-        goods.foods.map((food, index) => {
-          return (
-              <li key={index} className="food-item border-1px">
-                <div className="icon">
-                  <img width="57" height="57" src={food.icon} alt=""/>
-                </div>
-                <div className="content">
-                  <h2 className="name">{food.name}</h2>
-                  <p className="desc">{food.description}</p>
-                  <div className="extra">
-                    <span className="count">月售{food.sellCount}份</span><span>好评率{food.rating}%</span>
-                  </div>
-                  <div className="price">
-                    <span className="now">￥{food.price}</span>
-                    {food.oldPrice ? <span className="old">￥{food.oldPrice}</span> : null}
-                  </div>
-                  <div className="cartcontrol-wrapper">
-                    购物
-                  </div>
-                </div>
-              </li>
-          )
-        })
-    )
+    return goods.foods.map((food, index) => {
+      return (
+        <li key={index} className="food-item border-1px">
+          <div className="icon">
+            <img width="57" height="57" src={food.icon} alt="" />
+          </div>
+          <div className="content">
+            <h2 className="name">{food.name}</h2>
+            <p className="desc">{food.description}</p>
+            <div className="extra">
+              <span className="count">月售{food.sellCount}份</span>
+              <span>好评率{food.rating}%</span>
+            </div>
+            <div className="price">
+              <span className="now">￥{food.price}</span>
+              {food.oldPrice ? (
+                <span className="old">￥{food.oldPrice}</span>
+              ) : null}
+            </div>
+            <div className="cartcontrol-wrapper">购物</div>
+          </div>
+        </li>
+      );
+    });
   }
 
   /**
    * 右侧Food列
    */
   buildFoodList(): ReactNode {
-    return (
-        this.state.goods.map((item, index) => {
-          return (
-              <li key={index} ref={fl => this.foodList[index] = fl!}>
-                <h1 className="title">{item.name}</h1>
-                <ul>
-                  {this.buildFoodItem(item)}
-                </ul>
-              </li>
-          )
-        })
-    )
+    return this.state.goods.map((item, index) => {
+      return (
+        <li key={index} ref={fl => (this.foodList[index] = fl!)}>
+          <h1 className="title">{item.name}</h1>
+          <ul>{this.buildFoodItem(item)}</ul>
+        </li>
+      );
+    });
   }
 
   render(): ReactNode {
     return (
-        <div className="goods">
-          <div className="scroll-nav-wrapper">
-            <div className="menu-wrapper" ref={div => this.menuWrapper = div!}>
-              <ul>
-                {this.buildMenuList()}
-              </ul>
-            </div>
-            <div className="foods-wrapper" ref={div => this.foodsWrapper = div!}>
-              <ul>
-                {this.buildFoodList()}
-              </ul>
-            </div>
+      <div className="goods">
+        <div className="scroll-nav-wrapper">
+          <div className="menu-wrapper" ref={div => (this.menuWrapper = div!)}>
+            <ul>{this.buildMenuList()}</ul>
           </div>
-          <div className="shop-cart-wrapper">
-            <ul>
-              <li>购物车</li>
-            </ul>
+          <div
+            className="foods-wrapper"
+            ref={div => (this.foodsWrapper = div!)}
+          >
+            <ul>{this.buildFoodList()}</ul>
           </div>
         </div>
+        <div className="shop-cart-wrapper">
+          <ul>
+            <li>购物车</li>
+          </ul>
+        </div>
+      </div>
     );
   }
 }
