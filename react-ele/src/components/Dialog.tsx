@@ -19,7 +19,7 @@ export class Dialog extends React.Component<DialogProps> {
             </div>
           </div>
           <div className="close">
-            <i className="icon-close" onClick={e => this.props.onClose(false)}/>
+            <i className="icon-close" onClick={() => this.props.onClose(false)}/>
           </div>
         </div>
     );

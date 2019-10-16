@@ -20,9 +20,9 @@ export class Ratings extends React.Component<RatingsProps> {
   }
 
   ratingItemClass(): string[] {
-    const result = [];
+    const result: string[] = [];
     const score = Math.floor(this.props.score * 2) / 2;
-    const hasDecimal = score % 1 !== 0;
+    const hasDecimal: boolean = score % 1 !== 0;
     const integer = Math.floor(score);
     for (let i = 0; i < integer; i++) {
       result.push(CLS_ON)
