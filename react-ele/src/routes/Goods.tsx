@@ -35,7 +35,7 @@ export class Goods extends React.Component {
    * @private
    */
   private _calculateHeight() {
-    let foodList: any[] = this.foodList as any;
+    let foodList: HTMLElement[] = this.foodList;
     let height = 0;
     const listHeight = [];
     listHeight.push(height);

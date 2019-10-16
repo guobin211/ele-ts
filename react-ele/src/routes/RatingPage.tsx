@@ -3,11 +3,7 @@ import React from "react";
 export class RatingPage extends React.Component {
 
   componentDidMount(): void {
-    console.log('RatingPage componentDidMount')
-  }
-
-  componentWillUnmount(): void {
-    console.log('RatingPage componentWillUnmount')
+    console.log('RatingPage componentDidMount');
   }
 
   render() {
