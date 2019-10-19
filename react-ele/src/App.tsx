@@ -10,7 +10,7 @@ const PREFIX_KEYS = {
   component: "__component__"
 };
 /*缓存组件*/
-const components: Map<string, any> = new Map();
+const components: Map<string, JSX.Element> = new Map();
 
 /**
  * FunctionComponent
