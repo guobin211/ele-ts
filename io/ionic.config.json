@@ -1,0 +1,7 @@
+{
+  "name": "io",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
