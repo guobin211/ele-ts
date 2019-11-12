@@ -33,8 +33,8 @@ const App: React.FC = () => {
         return <Goods />;
       }
       if (index === 1) {
-        components.set(currentKey, <RatingPage />);
-        return <RatingPage />;
+        components.set(currentKey, <RatingPage name={"回龙观"} rating={100} />);
+        return <RatingPage name={"回龙观"} rating={100} />;
       }
       if (index === 2) {
         components.set(currentKey, <Seller />);
