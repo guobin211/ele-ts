@@ -27,7 +27,7 @@ export class Goods extends React.Component {
   foodList: HTMLElement[] = [];
   menuList: HTMLElement[] = [];
 
-  meunScroll!: BScroll;
+  menuScroll!: BScroll;
   foodsScroll!: BScroll;
 
   /**
@@ -54,7 +54,7 @@ export class Goods extends React.Component {
    * @private
    */
   private _initScroll() {
-    this.meunScroll = new BScroll(this.menuWrapper, {
+    this.menuScroll = new BScroll(this.menuWrapper, {
       click: true
     });
 
@@ -82,7 +82,7 @@ export class Goods extends React.Component {
   private _followScroll(index: number) {
     let menuList = this.menuList;
     let el = menuList[index];
-    this.meunScroll.scrollToElement(el, 300, 0, -100);
+    this.menuScroll.scrollToElement(el, 300, 0, -100);
   }
 
   /**
