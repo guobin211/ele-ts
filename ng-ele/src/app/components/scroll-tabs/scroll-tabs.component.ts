@@ -15,7 +15,7 @@ export class ScrollTabsComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleClick(item: any, index: number) {
+  handleClick(item: any, index: number, e: MouseEvent) {
     this.currentIndex = index;
     this.tabChange.emit(item);
   }

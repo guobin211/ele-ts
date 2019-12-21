@@ -1,7 +1,8 @@
 <div class="scroll-warp">
   <div class="scroll-list" (scroll)="handleScroll($event)">
-    <div class="scroll-item" *ngFor="let item of tabsData;let i = index" [ngClass]="{'active': currentIndex === i}"
-      (click)="handleClick(item, i)">
+    <div class="scroll-item" *ngFor="let item of tabsData;let i = index"
+         [ngClass]="{'active': currentIndex === i}"
+         (click)="handleClick(item, i, $event)">
       <span>{{item.text}}</span>
     </div>
   </div>
