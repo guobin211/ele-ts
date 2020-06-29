@@ -1,11 +1,11 @@
 # ele-ts
-> 大前端几种框架的开发体验对比
+
+> 仿饿了么app开发对比
 
 ```bash
-
-    原作为vue版本 仿饿了么app
-    慕课网课程地址: https://coding.imooc.com/class/74.html
-    github: https://github.com/ustbhuangyi/vue-sell
+    vue             // vue 略
+    ng-ele          // angular 版本
+    react-ele       // react 版本
 
 ```
 
@@ -20,8 +20,12 @@
 
 ```
 
-## ionic版本
-```bash
-    # 使用ionic版本打包app
-    
-```
+### 预览
+
+<img src="https://github.com/guobin211/ele-ts/blob/master/resource/01_.jpg" width="320"/>
+
+<img src="https://github.com/guobin211/ele-ts/blob/master/resource/02_.jpg" width="320"/>
+
+<img src="https://github.com/guobin211/ele-ts/blob/master/resource/03_.jpg" width="320"/>
+
+<img src="https://github.com/guobin211/ele-ts/blob/master/resource/05_.jpg" width="320"/>
