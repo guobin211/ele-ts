@@ -6,7 +6,7 @@
     vue             // vue 略
     ng-ele          // angular 版本
     react-ele       // react 版本
-
+    vue-music       // vue2.0音乐播放器
 ```
 
 ## 增加angular和react版本
